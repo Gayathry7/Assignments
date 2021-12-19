@@ -35,7 +35,6 @@ const WishListComponent =()=>{
       }
     })
 
-    // console.log('res1',res1)
 
     localStorage.setItem('staticData', JSON.stringify(res1))
 

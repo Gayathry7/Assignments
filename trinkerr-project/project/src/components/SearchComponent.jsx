@@ -1,27 +1,27 @@
 import React from 'react';
-// import axios from 'axios'
 import styles from './Styling.module.css'
-
-import data from '../mockServer/db.json'
-// console.log('data',data)
+import data from '../mockServer/db.json'        
 
 const SearchComponent =()=> {
 
   const [query, setQuery] = React.useState('')
   const [queriedData, setQueriedData] = React.useState([])
 
+
+  // ..............................On Mounting of the component, get the data from the server and store it in local Storage.........................
+  
   React.useEffect(()=>{
     let c = 0
 
-    let res = JSON.parse( localStorage.getItem('staticData') )
+    let res = JSON.parse( localStorage.getItem('staticData') )         //using the localStorage because the state vanishes when we reload the page. Hence used localStorage to persist data in the react app   
 
-    if( res === null){
+    if( res === null){                                                                                 
 
         let arr = data.data
         let resArr = []
   
         for(let i=0; i<arr.length; i++){
-          resArr.push([...arr[i], true,c++])
+          resArr.push([...arr[i], true,c++])                      //Add the properties (boolen and id). They will be used to add and delete the data and for toggling.
         }
         localStorage.setItem('staticData', JSON.stringify(resArr))
 
@@ -31,18 +31,18 @@ const SearchComponent =()=> {
   },[])
 
 
-  React.useEffect(()=>{
-      // console.log(query)
+ //................................For every change in the input / query, fiter out the data for that perticular input ..........................
+  
+ React.useEffect(()=>{
 
     if(query.length === 0 || query.charCodeAt(0) === 32){
       setQueriedData('')
     }else{
 
       let staticData = JSON.parse( localStorage.getItem('staticData'))
-      // console.log(staticData)
 
       let res = staticData.filter((el)=>el[0].includes(query))
-      // console.log('res',res)
+
       localStorage.setItem( 'res' ,JSON.stringify(res))
       setQueriedData( JSON.parse( localStorage.getItem('res') ) )
       
@@ -51,18 +51,19 @@ const SearchComponent =()=> {
   },[query])
 
 
+  //...............................On clicking a perticular data..........................
+
   const handleInfo=(id)=>{
    
-    // console.log(id)
 
     let staticData = JSON.parse( localStorage.getItem('staticData'))
     
     let res1 = staticData.map((el)=>{
-      // console.log(el[4], id)
+
       if(el[4] === id){
-        // console.log('yes', el[4], id)
+
         let [el0,el1,el2,el3,el4] = [...el]
-        el3 = !el3
+        el3 = !el3                                             //change the status of that data to !status
 
         let resArray = []
         resArray.push(el0, el1,el2, el3,el4)
@@ -72,18 +73,23 @@ const SearchComponent =()=> {
       }
     })
 
-    // console.log('res1',res1)
 
-    localStorage.setItem('staticData', JSON.stringify(res1))
+    localStorage.setItem('staticData', JSON.stringify(res1))          // set the new data
 
     staticData = JSON.parse( localStorage.getItem('staticData'))
 
-    let res = staticData.filter((el)=>el[0].includes(query))
+    let res = staticData.filter((el)=>el[0].includes(query))          // using the data, filter out the data having the desired input
 
-    // console.log('res',res)
-    localStorage.setItem( 'res' ,JSON.stringify(res))
+    localStorage.setItem( 'res' ,JSON.stringify(res))                  
+
     setQueriedData( JSON.parse( localStorage.getItem('res') ) )
 
+  }
+
+  const handleChange=(e)=>{
+    let value = e.target.value
+    value = value.toUpperCase()
+    setQuery( value )
   }
 
 
@@ -91,7 +97,7 @@ const SearchComponent =()=> {
   
   return (
     <div >
-     <input className={styles.inputElement} placeholder="Search Stocks..." value = {query} onChange={(e)=>{ setQuery(e.target.value)}}/>
+     <input className={styles.inputElement} placeholder="Search Stocks..." value = {query} onChange={(e)=>{ handleChange(e)}}/>
      <div>
        {
          queriedData && queriedData.map((el,i)=><div key ={i} className={styles.showData}>
