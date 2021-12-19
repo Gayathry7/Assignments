@@ -7,8 +7,8 @@ Watchlist is a place where you can see all your favourite stocks at one place an
 The objective of this project is to create a similar feature using the dummy data.
 
 ## Tech Stacks Used
-React.js library
-Local Storage
+1. React.js library
+2. Local Storage
 
 ## Following Tasks have been Implemented
 1. A search bar where you can serach for different stocks.On Searching a stock, there will be a drop down showing the relevant search results.
