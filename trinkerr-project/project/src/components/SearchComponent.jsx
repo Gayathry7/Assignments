@@ -91,7 +91,7 @@ const SearchComponent =()=> {
   
   return (
     <div >
-     <input className={styles.inputElement} placeholder="Search Stocks" value = {query} onChange={(e)=>{ setQuery(e.target.value)}}/>
+     <input className={styles.inputElement} placeholder="Search Stocks..." value = {query} onChange={(e)=>{ setQuery(e.target.value)}}/>
      <div>
        {
          queriedData && queriedData.map((el,i)=><div key ={i} className={styles.showData}>

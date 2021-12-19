@@ -8,12 +8,12 @@ const Navbar=()=>{
       
     return(
         <div className={styles.navbar__head}>
-
+           
             <div>
                 <NavLink to="/"  className={(navData)=>navData.isActive ? styles.navbar__active : styles.navbar__text}>Search Stocks</NavLink>
             </div> 
             <div>
-                <NavLink to="/wishList" className={(navData)=>navData.isActive ? styles.navbar__active : styles.navbar__text}  >Wish List</NavLink> 
+                <NavLink to="/watchList" className={(navData)=>navData.isActive ? styles.navbar__active : styles.navbar__text}  >Watch List</NavLink> 
             </div>
       </div>
     )

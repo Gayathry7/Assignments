@@ -9,11 +9,18 @@ function App() {
 
   return (
     <div className="App">
+       <h2>Hey...</h2>
+        <p>Enjoy searching the Stocks and Add all your favourite stocks to your watch list !</p>
+            <br/>
+            <hr/>
+            <br/>
+
+
      <Navbar/>
      
      <Routes>
        <Route path= '/' element={<SearchComponent/>}/>
-       <Route path= '/wishList' element={<WishListComponent/>}/>
+       <Route path= '/watchList' element={<WishListComponent/>}/>
 
      </Routes>
     </div>
