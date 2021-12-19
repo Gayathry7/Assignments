@@ -1,0 +1,103 @@
+
+.showData{
+    width: 25%;
+    margin:10px auto;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(240, 237, 237);
+}
+.showData__buttonAdd, .showData__buttonDelete{
+    /* display: none; */
+    visibility: hidden;
+}
+.showData:hover .showData__buttonAdd, .showData:hover .showData__buttonDelete{
+    
+    /* display:initial; */
+    visibility: visible;
+    width: 25%;
+    background-color: rgb(7, 100, 7);
+    color: white;
+    border:none;
+    border-radius: 5%;
+    height: 50px;
+    margin-top: 7px;
+}
+.showData:hover{
+    background-color: rgb(240, 237, 237);
+}
+
+.showData:hover .showData__buttonDelete{
+ 
+    background-color: rgb(116, 6, 6);
+    color: white;
+}
+.showData__nsc{
+    background-color: rgb(240, 237, 237);
+    color: gray;
+    width: fit-content;
+    margin:7px auto;
+    padding:5px 10px;
+}
+
+.showData__divElement{
+    text-align:center;
+     width:50%;
+}
+
+.showData__divElement2 > div{
+    margin-bottom:10px ;
+
+}
+
+.showData__wishListMsg{
+
+    background-color: rgb(247, 184, 215);
+    font-size: 25px;
+    width: fit-content;
+    padding: 20px;
+    margin: 50px auto;
+    border-radius: 1%;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+
+}
+
+
+.navbar__head{
+    width: 30%;
+    margin: 10px auto;
+    display: flex; 
+    justify-content: space-around;
+}
+.navbar__head>div{
+    /* width: 50%; */
+    width: 135px;
+    background-color: black;
+    padding: 10px;
+}  
+.navbar__text{
+    text-decoration: none;
+    color: white;
+}
+.navbar__active{
+    text-decoration: none;
+    color: yellow;
+}
+
+.inputElement{
+    width: 25%;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    border: 2px solid lightskyblue;
+    margin: 20px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+
+}
+
+.inputElement:focus{
+    border: none;
+    outline: none;
+    border: 2px solid rgb(17, 29, 190);
+}
+
+
