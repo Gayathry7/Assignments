@@ -8,7 +8,7 @@ The objective of this project is to create a similar feature using the dummy dat
 
 ## Tech Stacks Used
 1. React.js library
-2. Local Storage
+2. Local Storage - for persisting the data
 
 ## Following Tasks have been Implemented
 1. A search bar where you can serach for different stocks.On Searching a stock, there will be a drop down showing the relevant search results.
